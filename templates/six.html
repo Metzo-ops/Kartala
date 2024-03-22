@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+<marquee><h1 class="m1">Le pourcentage de membres d’un pôle impliqué dans un projet/programme qui ont
+    réalisé les activités relatives au projet/programme après l’échéance parmi tous les
+    membres du pôle impliqués</h1></marquee>
+    <br>
+    <br>
+    <br>
+    <br>
+    <table class="table table-dark" id="tb">
+      <thead>
+          <tr>
+              <th scope="col">Noms des Poles</th>
+              <th scope="col">Noms des Projets</th>
+              <th scope="col">Pourcentages Après Echéance</th>
+
+          </tr>
+      </thead>
+      <tbody>
+        {% for p, n, q in np | zip_lists(npr, perc6) %}
+        <tr>
+            <td class="rouge">{{ p }}</td>
+            <td class="jaune">{{ n }}</td>
+            <td class="black">{{ q }}</td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <canvas id="chart" width="200" height="50"></canvas>
+    <script>
+      const ctx = document.getElementById('chart').getContext('2d');
+      const poles = []; 
+      const dataAvant = []; 
+
+      {% for p, q in np | zip_lists(perc6) %}
+        poles.push("{{ p }}");
+        dataAvant.push({{ q }});
+      {% endfor %}
+
+      const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: poles,
+          datasets: [{
+            label: 'Pourcentage Après Echéance',
+            data: dataAvant,
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                max: 100
+              },
+              label: 'Pourcentage'
+            }]
+          },
+          legend: {
+            display: false
+          },
+          title: {
+            display: true,
+            text: 'Taux de réalisation après échéance par pôle'
+          }
+        }
+      });
+    </script>
+{% endblock %}

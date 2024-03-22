@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="29">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css_file.css')}}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+
+</head>
+<style>
+    body{
+        background-color: #7fcde8d2;
+        width: auto;
+    }
+</style>
+<body>    
+    {% block content %}
+    <header id="head1">
+    <marquee><h1 id="h_1" class="m1">Bienvenue sur KARTALA</h1></marquee>
+</header>
+        <hr>
+    <section id="s1">
+        <h2 id="h_2">Cette plateforme permet de faire le <mark> Suivi et l'évaluation régulières des projets.</mark>
+        Vous pouvez cliquer sur les boutons d' indicateurs de performances suivants : </h2>
+        <section id="req">
+        <section class="s2">
+            <h3 class="h_3"><a href="{{url_for('first')}}">Le nombre de projets/programmes<br> en cours désagrégé par pôle <br>ou démembrement</a></h3>
+            <h3 class="h_3"><a href="{{url_for('second')}}">Le nombre de projets/programmes<br> déjà finalisés désagrégé par pôle<br> ou
+                démembrement</a></h3>
+            <h3 class="h_3"><a href="{{url_for('third')}}">Le pourcentage d’activité/tâches<br> exécutées avant l’échéance<br> désagrégé par
+                projet/programme</a></h3>  
+            </section>
+            <section class="s2">
+            <h3 class="h_3 h "><a href="{{url_for('fourth')}}">Le pourcentage d’activité/tâches<br> exécutées après l’échéance<br> désagrégé par
+                projet/programme</a></h3>  
+            <h3 class="h_3"><a href="{{url_for('fifth')}}">Le pourcentage des membres <br>d’un pôle impliqué dans un<br> projet/programme qui ont
+                réalisé<br> les activités liées au projet/<br>programme avant l’échéance parmi<br> tous les
+                membres du pôle impliqués</a></h3>
+            <h3 class="h_3"><a href="{{url_for('sixth')}}">Le pourcentage de membres d’un<br> pôle impliqué dans un projet/<br>programme qui ont
+                réalisé les<br> activités relatives au projet/<br>programme après l’échéance parmi <br>tous les
+                membres du pôle impliqués</a></h3>
+            </section>
+            <section class="s2">
+            <h3 class="h_3  "><a href="{{url_for('seventh')}}">Pourcentage des activités /tâches à<br> la charge d’un employé exécutée<br> avant l’échéance</a></h3>
+            <h3 class="h_3"><a href="{{url_for('eighth')}}">Pourcentage des activités/tâches à <br>la charge d’un employé exécutée<br> après l’échéance</a></h3>
+        </section>
+        </section>
+    </section>
+
+    {% endblock %} 
+</body>
+</html>

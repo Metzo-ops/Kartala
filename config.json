@@ -1,0 +1,10 @@
+{
+    "Database": {
+      "host": "your host",
+      "user": "user's name",
+      "password": "your password",
+      "database": "the name of the database",
+      "file_db" : "read your database"
+    }
+  }
+  
